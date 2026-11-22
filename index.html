@@ -8,414 +8,309 @@
 <meta property="og:title" content="Sadia Saif | B2B Business Development">
 <meta property="og:description" content="I used to build the software. Now I start the conversations that sell it.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B2FD6'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23FFB627'%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#080A24">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A24'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23FFB627'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
 <style>
-  :root {
-    --paper: #F3F5FA;
-    --white: #FFFFFF;
-    --ink: #14173A;
-    --indigo: #2B2FD6;
-    --marigold: #FFB627;
-    --muted: #565B80;
-    --line: #D3D8E8;
-    --display: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
-    --body: "Instrument Sans", "Segoe UI", Helvetica, Arial, sans-serif;
-    --wrap: 1120px;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  a:focus-visible, .btn:focus-visible {
-    outline: 3px solid var(--marigold);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
-  h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.02em; }
-  h2 { font-size: clamp(2rem, 4.4vw, 3.25rem); line-height: 1.05; font-weight: 800; }
-  h3 { font-size: 1.375rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
-  p { margin: 0; }
+:root{--bg:#080A24;--bg2:#0D1038;--text:#EEF0FF;--muted:#A3A8D6;--violet:#7B7FFF;--gold:#FFB627;--line:rgba(140,145,255,.2);--glass:rgba(255,255,255,.045);--display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;--body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem,5vw,3.75rem);line-height:1.02;font-weight:800}
+h3{font-size:1.35rem;line-height:1.2;font-weight:600}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{position:relative}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
 
-  /* Top bar */
-  .top { padding: 22px 0; }
-  .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  .name { font-family: var(--display); font-weight: 800; font-size: 1.25rem; text-decoration: none; letter-spacing: -0.02em; }
-  .nav { display: flex; gap: 26px; font-size: 0.975rem; font-weight: 500; }
-  .nav a { text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
-  .nav a:hover { border-bottom-color: var(--indigo); }
+.top{position:fixed;inset:0 0 auto 0;z-index:20;padding:14px 0;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(8,10,36,.55);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.name{font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none}
+.name b{color:var(--gold)}
+.nav{display:flex;gap:26px;font-size:.95rem;font-weight:500;align-items:center}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--text)}
+.nav a.cta{color:var(--bg);background:var(--gold);padding:8px 16px;border-radius:999px;font-weight:600}
 
-  /* Hero */
-  .hero { padding: 56px 0 104px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
-  h1 {
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
-    line-height: 0.98;
-    font-weight: 800;
-    letter-spacing: -0.035em;
-  }
-  h1 span { display: block; }
-  h1 .then { color: var(--muted); }
-  .lede { margin-top: 28px; max-width: 34em; font-size: 1.1875rem; color: var(--muted); }
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-12%;top:50%;width:min(920px,90vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(123,127,255,.34) 0%,rgba(123,127,255,.1) 38%,transparent 64%);pointer-events:none}
+#globe{position:absolute;right:-5%;top:50%;width:min(880px,66vw);aspect-ratio:1;transform:translateY(-50%);cursor:grab;touch-action:pan-y}
+#globe:active{cursor:grabbing}
+#globe canvas{width:100%!important;height:100%!important;display:block}
+.pin{position:absolute;left:0;top:0;font-size:.82rem;font-weight:600;color:var(--bg);background:var(--gold);padding:2px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .3s;will-change:transform}
+.hero .wrap{position:relative;z-index:2;width:100%;pointer-events:none}
+.hero .wrap>*{pointer-events:auto}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;color:var(--muted);border:1px solid var(--line);background:var(--glass);padding:6px 14px;border-radius:999px;margin-bottom:26px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,182,39,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 12px rgba(255,182,39,0)}}
+h1{font-size:clamp(2.7rem,7.2vw,6rem);line-height:.96;font-weight:800;letter-spacing:-.04em;max-width:11.5em}
+h1 span{display:block;overflow:hidden}
+h1 span em{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+h1 span:nth-child(2) em{animation-delay:.12s}
+h1 span:nth-child(3) em{animation-delay:.24s}
+h1 span:nth-child(4) em{animation-delay:.36s}
+h1 .dim em{color:var(--muted)}
+h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+@keyframes rise{to{transform:none}}
+.lede{margin-top:28px;max-width:31em;font-size:1.15rem;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:999px;border:1px solid var(--line);background:var(--glass);transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);border-color:var(--violet)}
+.btn.gold{background:var(--gold);color:var(--bg);border-color:var(--gold);box-shadow:0 10px 40px -10px rgba(255,182,39,.7)}
+.btn.gold:hover{box-shadow:0 16px 50px -8px rgba(255,182,39,.85)}
+.scroll{position:absolute;left:50%;bottom:22px;width:24px;height:38px;margin-left:-12px;border:2px solid var(--line);border-radius:14px;z-index:2}
+.scroll::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--gold);animation:wheel 1.8s infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
 
-  .note {
-    background: var(--white);
-    border: 2px solid var(--ink);
-    border-radius: 18px;
-    box-shadow: 10px 10px 0 var(--indigo);
-    padding: 26px 26px 24px;
-  }
-  .note-head { display: flex; gap: 14px; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-  .avatar {
-    width: 48px; height: 48px; flex: none; border-radius: 50%;
-    background: var(--marigold); color: var(--ink);
-    display: grid; place-items: center;
-    font-family: var(--display); font-weight: 800; font-size: 1.05rem;
-  }
-  .note-head strong { display: block; font-weight: 600; line-height: 1.3; }
-  .note-head small { color: var(--muted); font-size: 0.9rem; }
-  .note-body { padding: 18px 0 22px; display: grid; gap: 12px; font-size: 1.03rem; }
-  .note-body p { opacity: 0; animation: arrive 0.5s ease forwards; }
-  .note-body p:nth-child(1) { animation-delay: 0.3s; }
-  .note-body p:nth-child(2) { animation-delay: 1.0s; }
-  .note-body p:nth-child(3) { animation-delay: 1.7s; }
-  .note-body p:nth-child(4) { animation-delay: 2.4s; }
-  @keyframes arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) {
-    .note-body p { animation: none; opacity: 1; }
-    html { scroll-behavior: auto; }
-  }
-  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn {
-    display: inline-block; text-decoration: none;
-    font-weight: 600; font-size: 0.975rem;
-    padding: 12px 18px; border-radius: 999px;
-    border: 2px solid var(--ink);
-    transition: background 0.15s, color 0.15s;
-  }
-  .btn-solid { background: var(--ink); color: var(--white); }
-  .btn-solid:hover { background: var(--indigo); border-color: var(--indigo); }
-  .btn-line:hover { background: var(--ink); color: var(--white); }
+.facts{border-block:1px solid var(--line);background:var(--bg2)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:34px 20px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;color:var(--gold)}
+.fact span{color:var(--muted);font-size:.98rem}
 
-  /* Method */
-  .method { background: var(--ink); color: var(--white); padding: 96px 0; }
-  .method-intro { max-width: 40em; margin-top: 18px; color: #B9BEDD; }
-  .steps { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; }
-  .steps li { counter-increment: step; position: relative; padding-top: 62px; }
-  .steps li::before {
-    content: counter(step);
-    position: absolute; top: 0; left: 0;
-    width: 42px; height: 42px; border-radius: 50%;
-    background: var(--marigold); color: var(--ink);
-    display: grid; place-items: center;
-    font-family: var(--display); font-weight: 800; font-size: 1.1rem;
-  }
-  .steps li::after {
-    content: ""; position: absolute; top: 20px; left: 54px; right: -16px;
-    height: 2px; background: #3A3F73;
-  }
-  .steps li:last-child::after { display: none; }
-  .steps p { margin-top: 10px; color: #B9BEDD; font-size: 1rem; }
-  .measure {
-    margin-top: 52px; padding-top: 26px; border-top: 1px solid #3A3F73;
-    max-width: 46em; color: #DDE0F3;
-  }
-  .measure strong { color: var(--marigold); font-weight: 600; }
+.belt{overflow:hidden;padding:22px 0;border-bottom:1px solid var(--line);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.belt div{display:flex;gap:56px;width:max-content;animation:slide 36s linear infinite;font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--muted);white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-  /* Experience */
-  .work { padding: 104px 0 88px; }
-  .roles { margin-top: 48px; border-top: 2px solid var(--ink); }
-  .role { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--line); }
-  .when { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--muted); }
-  .now {
-    display: inline-block; margin-top: 8px;
-    background: var(--marigold); color: var(--ink);
-    font-family: var(--body); font-size: 0.82rem; font-weight: 600;
-    padding: 2px 10px; border-radius: 999px;
-  }
-  .role h3 { font-size: 1.625rem; }
-  .company { color: var(--indigo); font-weight: 600; margin-top: 2px; }
-  .role ul { margin: 16px 0 0; padding-left: 1.1em; max-width: 44em; display: grid; gap: 8px; }
-  .role li::marker { color: var(--indigo); }
+.block{padding:120px 0}
+.sub{margin-top:18px;max-width:38em;color:var(--muted);font-size:1.1rem}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;perspective:1200px}
+.card{position:relative;background:linear-gradient(160deg,rgba(123,127,255,.16),rgba(255,255,255,.03) 55%);border:1px solid var(--line);border-radius:22px;padding:28px 24px 30px;transform-style:preserve-3d;transition:transform .25s ease-out,border-color .25s;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,182,39,.2),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:rgba(255,182,39,.55)}
+.card:hover::after{opacity:1}
+.num{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--gold);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.2rem;margin-bottom:22px;transform:translateZ(40px);box-shadow:0 12px 30px -8px rgba(255,182,39,.7)}
+.card h3{transform:translateZ(26px)}
+.card p{margin-top:10px;color:var(--muted);font-size:1rem;transform:translateZ(14px)}
+.measure{margin-top:28px;border:1px dashed var(--line);border-radius:22px;padding:22px 26px;color:var(--muted)}
+.measure strong{color:var(--gold);font-weight:600}
 
-  /* Skills */
-  .skills { padding: 16px 0 104px; }
-  .cols { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .col { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
-  .col.lead { background: var(--indigo); border-color: var(--indigo); color: var(--white); }
-  .col ul { list-style: none; margin: 18px 0 0; padding: 0; }
-  .col li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 1rem; }
-  .col.lead li { border-top-color: rgba(255,255,255,0.22); }
+.work{background:var(--bg2);border-block:1px solid var(--line)}
+.roles{position:relative;margin-top:60px;padding-left:44px}
+.roles::before,.fill{content:"";position:absolute;left:9px;top:8px;width:2px;border-radius:2px}
+.roles::before{bottom:0;background:var(--line)}
+.fill{height:0;background:linear-gradient(var(--gold),var(--violet));box-shadow:0 0 18px rgba(255,182,39,.8)}
+.role{position:relative;padding:0 0 56px}
+.role:last-child{padding-bottom:0}
+.role::before{content:"";position:absolute;left:-44px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg2);border:2px solid var(--violet);transition:background .4s,border-color .4s,box-shadow .4s}
+.role.in::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 6px rgba(255,182,39,.18)}
+.when{font-family:var(--display);font-weight:600;color:var(--violet);font-size:1rem}
+.now{margin-left:10px;background:var(--gold);color:var(--bg);font-family:var(--body);font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:999px}
+.role h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-top:6px}
+.company{color:var(--gold);font-weight:600}
+.role ul{margin:16px 0 0;padding-left:1.1em;max-width:46em;display:grid;gap:8px;color:var(--muted)}
+.role li::marker{color:var(--violet)}
 
-  /* Background */
-  .study { padding: 0 0 104px; }
-  .study .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .study h3 { padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
-  .study dl { margin: 0; }
-  .study dt { font-weight: 600; margin-top: 16px; line-height: 1.35; }
-  .study dd { margin: 2px 0 0; color: var(--muted); font-size: 0.98rem; }
+.cols{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1200px}
+.col{padding:30px 28px}
+.col h3{transform:translateZ(26px)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;transform:translateZ(16px)}
+.tags span{font-size:.93rem;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(8,10,36,.5);transition:border-color .2s,color .2s}
+.tags span:hover{border-color:var(--gold);color:var(--gold)}
 
-  /* Contact */
-  .contact { background: var(--marigold); padding: 96px 0 40px; }
-  .contact h2 { font-size: clamp(2.5rem, 6.4vw, 5rem); line-height: 1; max-width: 12em; }
-  .contact p.sub { margin-top: 20px; max-width: 34em; font-size: 1.1875rem; }
-  .mail {
-    display: inline-block; margin-top: 36px;
-    font-family: var(--display); font-weight: 600;
-    font-size: clamp(1.25rem, 3.4vw, 2.25rem);
-    letter-spacing: -0.02em; overflow-wrap: anywhere;
-    text-decoration-thickness: 2px; text-underline-offset: 6px;
-  }
-  .mail:hover { color: var(--indigo); }
-  .contact .actions { margin-top: 32px; }
-  .contact .btn-line:hover { background: var(--ink); color: var(--marigold); }
-  .foot { margin-top: 80px; padding-top: 20px; border-top: 1px solid rgba(20,23,58,0.35); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.study{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:80px}
+.study h3{padding-bottom:14px;border-bottom:1px solid var(--line);color:var(--violet)}
+.study dl{margin:0}
+.study dt{font-weight:600;margin-top:16px;line-height:1.35}
+.study dd{margin:2px 0 0;color:var(--muted);font-size:.97rem}
 
-  @media (max-width: 900px) {
-    .hero { padding: 32px 0 80px; }
-    .hero .wrap { grid-template-columns: 1fr; gap: 48px; }
-    .note { box-shadow: 7px 7px 0 var(--indigo); margin-right: 7px; }
-    .steps { grid-template-columns: 1fr 1fr; gap: 40px 28px; }
-    .steps li:nth-child(2)::after { display: none; }
-    .role { grid-template-columns: 1fr; gap: 10px; }
-    .cols, .study .wrap { grid-template-columns: 1fr; }
-    .study .wrap { gap: 44px; }
-  }
-  @media (max-width: 560px) {
-    .nav { gap: 16px; font-size: 0.9rem; }
-    .nav a.hide-s { display: none; }
-    .steps { grid-template-columns: 1fr; }
-    .steps li::after { display: none; }
-    .method, .contact { padding-top: 72px; }
-    .work { padding: 72px 0 64px; }
-  }
+.contact{padding:130px 0 36px;text-align:center;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;bottom:-55%;width:min(1100px,130vw);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,182,39,.3),rgba(123,127,255,.14) 40%,transparent 66%);pointer-events:none}
+.contact .wrap{position:relative}
+.contact h2{font-size:clamp(2.6rem,7.5vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:11em;margin:0 auto}
+.contact .sub{margin:22px auto 0}
+.mail{display:inline-block;margin-top:40px;font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,3.6vw,2.4rem);letter-spacing:-.02em;color:var(--gold);overflow-wrap:anywhere;text-underline-offset:8px;text-decoration-thickness:2px}
+.contact .actions{justify-content:center}
+.foot{margin-top:100px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:960px){
+#globe{right:-30%;width:120vw;opacity:.5}
+.hero::before{right:-40%;width:130vw}
+.facts .wrap{grid-template-columns:1fr 1fr}
+.fact{padding:26px 16px}
+.fact:nth-child(odd){border-left:0;padding-left:0}
+.fact:nth-child(n+3){border-top:1px solid var(--line)}
+.steps{grid-template-columns:1fr 1fr}
+.cols,.study{grid-template-columns:1fr}
+.block{padding:84px 0}
+}
+@media (max-width:560px){
+.nav a:not(.cta){display:none}
+.steps{grid-template-columns:1fr}
+.roles{padding-left:36px}
+.role::before{left:-36px}
+.btn{padding:13px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.js .rv{opacity:1;transform:none;transition:none}
+h1 span em{animation:none;transform:none}
+.belt div,.status i,.scroll::after{animation:none}
+}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="name" href="#top">Sadia Saif</a>
+    <a class="name" href="#top">Sadia Saif<b>.</b></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#method" class="hide-s">How I work</a>
+      <a href="#method">How I work</a>
       <a href="#experience">Experience</a>
-      <a href="#skills" class="hide-s">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="#skills">Skills</a>
+      <a class="cta" href="#contact">Get in touch</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
+    <div id="globe" aria-hidden="true"><span class="pin">Lahore</span></div>
     <div class="wrap">
-      <div>
-        <h1>
-          <span class="then">I used to build the software.</span>
-          <span>Now I start the conversations that sell it.</span>
-        </h1>
-        <p class="lede">Business Development Executive in Lahore, Pakistan. I run LinkedIn and cold email outbound for B2B technology companies selling into the US and other international markets.</p>
+      <p class="status"><i></i>Business Development Executive at Xorora</p>
+      <h1>
+        <span class="dim"><em>I used to build</em></span>
+        <span class="dim"><em>the software.</em></span>
+        <span><em>Now I start the</em></span>
+        <span class="glow"><em>conversations that sell it.</em></span>
+      </h1>
+      <p class="lede">From Lahore, I run LinkedIn and cold email outbound for B2B technology companies selling into the US and other international markets.</p>
+      <div class="actions">
+        <a class="btn gold" href="mailto:sadiasaif.official@gmail.com?subject=Hello%20Sadia">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">Connect on LinkedIn</a>
       </div>
+    </div>
+    <a class="scroll" href="#facts" aria-label="Scroll to the next section"></a>
+  </section>
 
-      <aside class="note" aria-label="A short note from Sadia">
-        <div class="note-head">
-          <div class="avatar" aria-hidden="true">SS</div>
-          <div>
-            <strong>Sadia Saif</strong>
-            <small>Business Development Executive at Xorora</small>
-          </div>
-        </div>
-        <div class="note-body">
-          <p>Hi, thanks for stopping by.</p>
-          <p>I spent nearly three years shipping Flutter apps before I moved into sales. Since 2022 I've been opening B2B conversations with CEOs, founders and senior decision-makers.</p>
-          <p>I can explain a product the way its developers would, and the way a buyer needs to hear it.</p>
-          <p>If you're hiring for outbound, I'd like to talk.</p>
-        </div>
-        <div class="actions">
-          <a class="btn btn-solid" href="mailto:sadiasaif.official@gmail.com?subject=Hello%20Sadia">Reply by email</a>
-          <a class="btn btn-line" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
-      </aside>
+  <section class="facts" id="facts">
+    <div class="wrap">
+      <div class="fact"><strong data-n="7" data-s="+">7+</strong><span>years in the tech industry</span></div>
+      <div class="fact"><strong data-n="4" data-s="+">4+</strong><span>years in B2B business development</span></div>
+      <div class="fact"><strong data-n="3">3</strong><span>years as a software engineer</span></div>
+      <div class="fact"><strong data-n="2">2</strong><span>computer science degrees</span></div>
     </div>
   </section>
 
-  <section class="method" id="method">
+  <div class="belt" aria-hidden="true"><div>
+    <span>LinkedIn Sales Navigator</span><span>Apollo.io</span><span>Cold email</span><span>Upwork</span><span>CRM pipelines</span><span>Proposal writing</span><span>Flutter</span><span>Python</span><span>REST APIs</span><span>Firebase</span>
+    <span>LinkedIn Sales Navigator</span><span>Apollo.io</span><span>Cold email</span><span>Upwork</span><span>CRM pipelines</span><span>Proposal writing</span><span>Flutter</span><span>Python</span><span>REST APIs</span><span>Firebase</span>
+  </div></div>
+
+  <section class="block" id="method">
     <div class="wrap">
-      <h2>From a cold contact to a booked call</h2>
-      <p class="method-intro">I own the whole outreach funnel myself, so nothing gets lost between the list and the meeting.</p>
+      <h2 class="rv">From a cold contact<br>to a booked call</h2>
+      <p class="sub rv">I own the whole outreach funnel myself, so nothing gets lost between the list and the meeting.</p>
       <ol class="steps">
-        <li>
-          <h3>Find the right accounts</h3>
-          <p>I build lists in LinkedIn Sales Navigator and Apollo.io, and keep only companies with a real operational or automation need.</p>
-        </li>
-        <li>
-          <h3>Write the first message</h3>
-          <p>Connection notes and cold emails written for one person at a time, leading with value instead of a pitch.</p>
-        </li>
-        <li>
-          <h3>Follow up</h3>
-          <p>Structured sequences on LinkedIn and email, with objections answered plainly as they come up.</p>
-        </li>
-        <li>
-          <h3>Book the call and hand over</h3>
-          <p>I turn replies into discovery calls, then brief the delivery team so the client's requirements arrive intact.</p>
-        </li>
+        <li class="card tilt rv"><span class="num">1</span><h3>Find the right accounts</h3><p>I build lists in LinkedIn Sales Navigator and Apollo.io, and keep only companies with a real operational or automation need.</p></li>
+        <li class="card tilt rv" style="--d:.1s"><span class="num">2</span><h3>Write the first message</h3><p>Connection notes and cold emails written for one person at a time, leading with value instead of a pitch.</p></li>
+        <li class="card tilt rv" style="--d:.2s"><span class="num">3</span><h3>Follow up</h3><p>Structured sequences on LinkedIn and email, with objections answered plainly as they come up.</p></li>
+        <li class="card tilt rv" style="--d:.3s"><span class="num">4</span><h3>Book the call and hand over</h3><p>I turn replies into discovery calls, then brief the delivery team so the client's requirements arrive intact.</p></li>
       </ol>
-      <p class="measure"><strong>Then I measure it.</strong> Acceptance, reply and meeting-booked rates go into the CRM, and the next round of targeting and messaging changes based on what they show.</p>
+      <p class="measure rv"><strong>Then I measure it.</strong> Acceptance, reply and meeting-booked rates go into the CRM, and the next round of targeting and messaging changes based on what they show.</p>
     </div>
   </section>
 
-  <section class="work" id="experience">
+  <section class="block work" id="experience">
     <div class="wrap">
-      <h2>Experience</h2>
+      <h2 class="rv">Experience</h2>
       <div class="roles">
-
-        <article class="role">
-          <div class="when">April 2026 to present<br><span class="now">Current role</span></div>
-          <div>
-            <h3>Business Development Executive</h3>
-            <p class="company">Xorora</p>
-            <ul>
-              <li>Lead B2B outbound end to end across LinkedIn outreach, cold email and direct prospecting, building a qualified pipeline in the US and international markets.</li>
-              <li>Design and run LinkedIn sequences for CEOs, founders and senior decision-makers.</li>
-              <li>Plan cold email campaigns from list building to sequencing and message testing, to lift open and reply rates.</li>
-              <li>Work with internal teams to match client requirements to the right technology solution, from lead to project start.</li>
-            </ul>
-          </div>
+        <div class="fill"></div>
+        <article class="role rv">
+          <div class="when">April 2026 to present<span class="now">Current role</span></div>
+          <h3>Business Development Executive</h3>
+          <p class="company">Xorora</p>
+          <ul>
+            <li>Lead B2B outbound end to end across LinkedIn outreach, cold email and direct prospecting, building a qualified pipeline in the US and international markets.</li>
+            <li>Design and run LinkedIn sequences for CEOs, founders and senior decision-makers.</li>
+            <li>Plan cold email campaigns from list building to sequencing and message testing, to lift open and reply rates.</li>
+            <li>Work with internal teams to match client requirements to the right technology solution, from lead to project start.</li>
+          </ul>
         </article>
-
-        <article class="role">
+        <article class="role rv">
           <div class="when">August 2025 to March 2026</div>
-          <div>
-            <h3>Business Development Executive</h3>
-            <p class="company">Devinity Solutions</p>
-            <ul>
-              <li>Managed the full B2B sales process: lead generation, outreach, negotiation and client acquisition.</li>
-              <li>Generated qualified leads through Upwork bidding, data scraping, Apollo.io and LinkedIn Sales Navigator.</li>
-              <li>Wrote email content, messaging strategies and follow-up templates, then tuned campaigns on response data.</li>
-              <li>Kept the pipeline moving and stayed in close contact with clients to shorten time to close.</li>
-            </ul>
-          </div>
+          <h3>Business Development Executive</h3>
+          <p class="company">Devinity Solutions</p>
+          <ul>
+            <li>Managed the full B2B sales process: lead generation, outreach, negotiation and client acquisition.</li>
+            <li>Generated qualified leads through Upwork bidding, data scraping, Apollo.io and LinkedIn Sales Navigator.</li>
+            <li>Wrote email content, messaging strategies and follow-up templates, then tuned campaigns on response data.</li>
+          </ul>
         </article>
-
-        <article class="role">
+        <article class="role rv">
           <div class="when">May 2022 to September 2025</div>
-          <div>
-            <h3>Junior Business Development Executive</h3>
-            <p class="company">SofoDynamix</p>
-            <ul>
-              <li>Focused on IT staff augmentation, finding companies with technical hiring needs.</li>
-              <li>Reached decision-makers through targeted LinkedIn outreach and cold email.</li>
-              <li>Segmented accounts by hiring demand, industry and technology stack.</li>
-              <li>Worked with recruitment and delivery teams to place the right developers and onboard clients.</li>
-            </ul>
-          </div>
+          <h3>Junior Business Development Executive</h3>
+          <p class="company">SofoDynamix</p>
+          <ul>
+            <li>Focused on IT staff augmentation, finding companies with technical hiring needs.</li>
+            <li>Reached decision-makers through targeted LinkedIn outreach and cold email.</li>
+            <li>Worked with recruitment and delivery teams to place the right developers and onboard clients.</li>
+          </ul>
         </article>
-
-        <article class="role">
+        <article class="role rv">
           <div class="when">July 2019 to April 2022</div>
-          <div>
-            <h3>Software Engineer</h3>
-            <p class="company">Apific Tech</p>
-            <ul>
-              <li>Built cross-platform mobile apps for Android and iOS with Flutter and Dart.</li>
-              <li>Wrote Python backends and REST APIs connecting apps to services and databases.</li>
-              <li>Designed and queried SQL and MySQL databases, and integrated Firebase and third-party SDKs.</li>
-              <li>Took part in the full development life cycle in Agile teams, from requirements to deployment and maintenance.</li>
-            </ul>
-          </div>
+          <h3>Software Engineer</h3>
+          <p class="company">Apific Tech</p>
+          <ul>
+            <li>Built cross-platform mobile apps for Android and iOS with Flutter and Dart.</li>
+            <li>Wrote Python backends and REST APIs connecting apps to services and databases.</li>
+            <li>Took part in the full development life cycle in Agile teams, from requirements to deployment and maintenance.</li>
+          </ul>
         </article>
-
       </div>
     </div>
   </section>
 
-  <section class="skills" id="skills">
+  <section class="block" id="skills">
     <div class="wrap">
-      <h2>Skills</h2>
+      <h2 class="rv">Sales skills,<br>engineering depth</h2>
       <div class="cols">
-        <div class="col lead">
+        <div class="card col tilt rv">
           <h3>Business development</h3>
-          <ul>
-            <li>LinkedIn outbound and cold email campaigns</li>
-            <li>Lead generation and prospecting</li>
-            <li>Proposal writing and cost estimation</li>
-            <li>Requirement gathering and solution mapping</li>
-            <li>Market research and competitive analysis</li>
-            <li>CRM and sales pipeline management</li>
-            <li>Negotiation and deal closing</li>
-          </ul>
+          <div class="tags"><span>LinkedIn outbound</span><span>Cold email campaigns</span><span>Lead generation</span><span>Prospecting</span><span>Proposal writing</span><span>Cost estimation</span><span>Requirement gathering</span><span>Market research</span><span>Pipeline management</span><span>Negotiation</span><span>Deal closing</span></div>
         </div>
-        <div class="col">
+        <div class="card col tilt rv" style="--d:.1s">
           <h3>Tools and platforms</h3>
-          <ul>
-            <li>LinkedIn Sales Navigator</li>
-            <li>Apollo.io</li>
-            <li>Upwork</li>
-            <li>Email marketing platforms</li>
-            <li>CRM systems</li>
-            <li>Figma and Adobe XD</li>
-            <li>Git, GitHub and GitLab</li>
-          </ul>
+          <div class="tags"><span>LinkedIn Sales Navigator</span><span>Apollo.io</span><span>Upwork</span><span>Email marketing platforms</span><span>CRM systems</span><span>Figma</span><span>Adobe XD</span><span>Git</span><span>GitHub</span><span>GitLab</span></div>
         </div>
-        <div class="col">
+        <div class="card col tilt rv" style="--d:.2s">
           <h3>Engineering</h3>
-          <ul>
-            <li>Flutter and Dart</li>
-            <li>Python, Java and C++</li>
-            <li>REST API integration</li>
-            <li>Firebase: Auth, Firestore, Realtime DB</li>
-            <li>State management: GetX, Provider, Bloc</li>
-            <li>SQL and MySQL, HTML and CSS</li>
-            <li>SDLC, Agile and Scrum</li>
-          </ul>
+          <div class="tags"><span>Flutter</span><span>Dart</span><span>Python</span><span>Java</span><span>C++</span><span>REST APIs</span><span>Firebase</span><span>GetX, Provider, Bloc</span><span>SQL and MySQL</span><span>HTML and CSS</span><span>Agile and Scrum</span></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="study">
-    <div class="wrap">
-      <div>
-        <h3>Education</h3>
-        <dl>
-          <dt>MS Computer Science</dt>
-          <dd>Superior University, Lahore, 2022 to 2024</dd>
-          <dt>BS Computer Science</dt>
-          <dd>Superior University, Lahore, 2017 to 2021</dd>
-        </dl>
-      </div>
-      <div>
-        <h3>Certifications</h3>
-        <dl>
-          <dt>Business Development in e-Business Era</dt>
-          <dd>Udemy</dd>
-          <dt>Google Flutter Developer Certificate</dt>
-          <dd>Udemy</dd>
-          <dt>Web Developer Certificate</dt>
-          <dd>House of Professionals</dd>
-        </dl>
-      </div>
-      <div>
-        <h3>Languages</h3>
-        <dl>
-          <dt>English</dt>
-          <dd>Advanced (C1)</dd>
-          <dt>Urdu</dt>
-          <dd>Native</dd>
-          <dt>Punjabi</dt>
-          <dd>Proficient (C2)</dd>
-        </dl>
+      <div class="study">
+        <div class="rv">
+          <h3>Education</h3>
+          <dl>
+            <dt>MS Computer Science</dt><dd>Superior University, Lahore, 2022 to 2024</dd>
+            <dt>BS Computer Science</dt><dd>Superior University, Lahore, 2017 to 2021</dd>
+          </dl>
+        </div>
+        <div class="rv" style="--d:.1s">
+          <h3>Certifications</h3>
+          <dl>
+            <dt>Business Development in e-Business Era</dt><dd>Udemy</dd>
+            <dt>Google Flutter Developer Certificate</dt><dd>Udemy</dd>
+            <dt>Web Developer Certificate</dt><dd>House of Professionals</dd>
+          </dl>
+        </div>
+        <div class="rv" style="--d:.2s">
+          <h3>Languages</h3>
+          <dl>
+            <dt>English</dt><dd>Advanced (C1)</dd>
+            <dt>Urdu</dt><dd>Native</dd>
+            <dt>Punjabi</dt><dd>Proficient (C2)</dd>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -423,12 +318,12 @@
 
 <footer class="contact" id="contact">
   <div class="wrap">
-    <h2>Need someone to open the conversation?</h2>
-    <p class="sub">I'm open to business development, SDR and lead generation roles, including remote work with international teams.</p>
-    <a class="mail" href="mailto:sadiasaif.official@gmail.com">sadiasaif.official@gmail.com</a>
-    <div class="actions">
-      <a class="btn btn-solid" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-line" href="https://github.com/Sadia-Saif" target="_blank" rel="noopener">GitHub</a>
+    <h2 class="rv">Need someone to open the conversation?</h2>
+    <p class="sub rv">I'm open to business development, SDR and lead generation roles, including remote work with international teams.</p>
+    <a class="mail rv" href="mailto:sadiasaif.official@gmail.com">sadiasaif.official@gmail.com</a>
+    <div class="actions rv">
+      <a class="btn gold" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/Sadia-Saif" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="foot">
       <span>Sadia Saif, Lahore, Pakistan</span>
@@ -437,5 +332,146 @@
   </div>
 </footer>
 
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      var el = e.target, n = +el.dataset.n, s = el.dataset.s || '', t0 = null;
+      if(calm) return;
+      function tick(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1100, 1); el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if(p < 1) requestAnimationFrame(tick); }
+      requestAnimationFrame(tick);
+    });
+  }, {threshold:.6});
+  document.querySelectorAll('[data-n]').forEach(function(el){ cio.observe(el); });
+
+  if(matchMedia('(pointer: fine)').matches && !calm){
+    document.querySelectorAll('.tilt').forEach(function(c){
+      c.addEventListener('pointermove', function(e){
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.transitionDelay = '0s';
+        c.style.transform = 'rotateX(' + ((.5 - y) * 14) + 'deg) rotateY(' + ((x - .5) * 14) + 'deg) translateZ(8px)';
+        c.style.setProperty('--mx', x * 100 + '%'); c.style.setProperty('--my', y * 100 + '%');
+      });
+      c.addEventListener('pointerleave', function(){ c.style.transform = ''; });
+    });
+  }
+
+  var roles = document.querySelector('.roles'), fill = document.querySelector('.fill');
+  function grow(){
+    var r = roles.getBoundingClientRect();
+    fill.style.height = Math.max(0, Math.min(r.height - 8, innerHeight * .6 - r.top)) + 'px';
+  }
+  addEventListener('scroll', grow, {passive:true}); addEventListener('resize', grow); grow();
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+const box = document.getElementById('globe'), pin = box.querySelector('.pin');
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+try {
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  box.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, .1, 20);
+  camera.position.z = 4.6;
+  const world = new THREE.Group(); scene.add(world);
+
+  const at = (lat, lon, r = 1) => {
+    const p = (90 - lat) * Math.PI / 180, t = (lon + 180) * Math.PI / 180;
+    return new THREE.Vector3(-r * Math.sin(p) * Math.cos(t), r * Math.cos(p), r * Math.sin(p) * Math.sin(t));
+  };
+
+  const N = 3200, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * 2.399963;
+    pos.set([Math.cos(a) * r, y, Math.sin(a) * r], i * 3);
+  }
+  const dots = new THREE.BufferGeometry();
+  dots.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  world.add(new THREE.Points(dots, new THREE.PointsMaterial({color:0x8E92FF, size:.017, transparent:true, opacity:.9})));
+  world.add(new THREE.Mesh(new THREE.SphereGeometry(.985, 48, 48), new THREE.MeshBasicMaterial({color:0x0A0C30})));
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.32, .003, 8, 160), new THREE.MeshBasicMaterial({color:0x7B7FFF, transparent:true, opacity:.5}));
+  ring.rotation.x = 1.25; scene.add(ring);
+  const ring2 = ring.clone(); ring2.rotation.set(1.9, .5, 0); ring2.scale.setScalar(1.12); scene.add(ring2);
+
+  const home = at(31.5, 74.3);
+  const gold = new THREE.MeshBasicMaterial({color:0xFFB627});
+  const homeDot = new THREE.Mesh(new THREE.SphereGeometry(.028, 16, 16), gold);
+  homeDot.position.copy(home); world.add(homeDot);
+  const halo = new THREE.Mesh(new THREE.RingGeometry(.04, .05, 40), new THREE.MeshBasicMaterial({color:0xFFB627, transparent:true, side:THREE.DoubleSide}));
+  halo.position.copy(home.clone().multiplyScalar(1.004)); halo.lookAt(home.clone().multiplyScalar(3)); world.add(halo);
+
+  const targets = [[40.7,-74],[37.8,-122.4],[30.3,-97.7],[51.5,-.1],[43.7,-79.4],[-33.9,151.2],[25.2,55.3],[52.5,13.4]];
+  const SEG = 90;
+  const arcs = targets.map(([la, lo], i) => {
+    const end = at(la, lo), h = 1 + .55 * home.angleTo(end) / Math.PI + .12;
+    const c1 = home.clone().lerp(end, .25).normalize().multiplyScalar(h);
+    const c2 = home.clone().lerp(end, .75).normalize().multiplyScalar(h);
+    const g = new THREE.BufferGeometry().setFromPoints(new THREE.CubicBezierCurve3(home, c1, c2, end).getPoints(SEG));
+    const line = new THREE.Line(g, new THREE.LineBasicMaterial({color:0xFFB627, transparent:true}));
+    world.add(line);
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(.012, 12, 12), new THREE.MeshBasicMaterial({color:0xFFFFFF, transparent:true}));
+    dot.position.copy(end); world.add(dot);
+    return {line, dot, off: i * .9};
+  });
+
+  world.rotation.x = .32;
+  const base = Math.atan2(-home.x, home.z) + .5;
+  let drag = 0, vel = 0, down = false, lastX = 0, tiltX = 0, tiltY = 0;
+  box.addEventListener('pointerdown', e => { down = true; lastX = e.clientX; });
+  addEventListener('pointerup', () => { down = false; });
+  addEventListener('pointermove', e => {
+    if (down) { vel = (e.clientX - lastX) * .006; lastX = e.clientX; }
+    tiltX = (e.clientY / innerHeight - .5) * .25; tiltY = (e.clientX / innerWidth - .5) * .3;
+  });
+
+  const size = () => { const s = box.clientWidth; renderer.setSize(s, s, false); };
+  addEventListener('resize', size); size();
+
+  const v = new THREE.Vector3();
+  let seen = true;
+  new IntersectionObserver(es => { seen = es[0].isIntersecting; }).observe(box);
+  const clock = new THREE.Clock();
+  function frame() {
+    requestAnimationFrame(frame);
+    if (!seen) return;
+    const t = clock.getElapsedTime();
+    drag += vel; vel *= down ? .6 : .95;
+    world.rotation.y = base + (calm ? 0 : t * .11) + drag;
+    world.rotation.x += (.32 + tiltX - world.rotation.x) * .05;
+    scene.rotation.y += (tiltY - scene.rotation.y) * .05;
+    ring.rotation.z = t * .12; ring2.rotation.z = -t * .09;
+    halo.scale.setScalar(1 + (t % 1.6) * 1.6); halo.material.opacity = 1 - (t % 1.6) / 1.6;
+    arcs.forEach(a => {
+      const p = calm ? .5 : ((t + a.off) % 7.2) / 3.2;
+      const head = Math.min(p, 1), tail = Math.max(0, Math.min(p - .55, 1));
+      const s = Math.floor(tail * SEG), e = Math.floor(head * SEG);
+      a.line.geometry.setDrawRange(s, Math.max(0, e - s + 1));
+      a.line.material.opacity = p > 1.55 ? 0 : 1;
+      const hit = p >= 1 && p < 1.8 ? 1 - (p - 1) / .8 : 0;
+      a.dot.material.opacity = .35 + hit * .65; a.dot.scale.setScalar(1 + hit * 1.6);
+    });
+    renderer.render(scene, camera);
+    homeDot.getWorldPosition(v);
+    const front = v.z > .15;
+    v.project(camera);
+    const s = box.clientWidth;
+    pin.style.opacity = front ? 1 : 0;
+    pin.style.transform = 'translate(' + ((v.x * .5 + .5) * s + 12) + 'px,' + ((-v.y * .5 + .5) * s - 30) + 'px)';
+  }
+  frame();
+} catch (err) { box.style.display = 'none'; }
+</script>
 </body>
 </html>
