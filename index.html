@@ -116,6 +116,12 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .tags span{font-size:.93rem;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(8,10,36,.5);transition:border-color .2s,color .2s}
 .tags span:hover{border-color:var(--gold);color:var(--gold)}
 
+.reach .card{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding:48px}
+.reach h2{font-size:clamp(1.9rem,3.6vw,2.9rem);transform:translateZ(26px)}
+.reach h3{font-size:1.05rem;color:var(--violet);margin-top:26px}
+.reach h3:first-child{margin-top:0}
+.reach .tags{margin-top:12px}
+.reach .tags span{border-color:rgba(255,182,39,.45)}
 .study{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:80px}
 .study h3{padding-bottom:14px;border-bottom:1px solid var(--line);color:var(--violet)}
 .study dl{margin:0}
@@ -140,6 +146,7 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .fact:nth-child(n+3){border-top:1px solid var(--line)}
 .steps{grid-template-columns:1fr 1fr}
 .cols,.study{grid-template-columns:1fr}
+.reach .card{grid-template-columns:1fr;gap:28px;padding:30px 24px}
 .block{padding:84px 0}
 }
 @media (max-width:560px){
@@ -163,6 +170,7 @@ h1 span em{animation:none;transform:none}
   <div class="wrap">
     <a class="name" href="#top">Sadia Saif<b>.</b></a>
     <nav class="nav" aria-label="Sections">
+      <a href="#clients">Clients</a>
       <a href="#method">How I work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -182,7 +190,7 @@ h1 span em{animation:none;transform:none}
         <span><em>Now I start the</em></span>
         <span class="glow"><em>conversations that sell it.</em></span>
       </h1>
-      <p class="lede">From Lahore, I run LinkedIn and cold email outbound for B2B technology companies selling into the US and other international markets.</p>
+      <p class="lede">From Lahore, I work US hours and run LinkedIn and cold email outbound for B2B technology companies, from the first prospect list through the discovery call to the client meeting.</p>
       <div class="actions">
         <a class="btn gold" href="mailto:sadiasaif.official@gmail.com?subject=Hello%20Sadia">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -205,7 +213,24 @@ h1 span em{animation:none;transform:none}
     <span>LinkedIn Sales Navigator</span><span>Apollo.io</span><span>Cold email</span><span>Upwork</span><span>CRM pipelines</span><span>Proposal writing</span><span>Flutter</span><span>Python</span><span>REST APIs</span><span>Firebase</span>
   </div></div>
 
-  <section class="block" id="method">
+  <section class="block reach" id="clients">
+    <div class="wrap">
+      <div class="card tilt rv">
+        <div>
+          <h2>International clients, on their clock</h2>
+          <p class="sub">I have worked with international clients throughout my career, and I keep my day on EST, PST and other client time zones. I handle the whole cycle myself: prospecting, outreach, the discovery call and the meetings that follow.</p>
+        </div>
+        <div>
+          <h3>Clients in</h3>
+          <div class="tags"><span>United States</span><span>United Kingdom</span><span>Canada</span><span>Australia</span><span>Turkey</span></div>
+          <h3>Working hours</h3>
+          <div class="tags"><span>EST</span><span>PST</span><span>Other client time zones</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="method" style="padding-top:0">
     <div class="wrap">
       <h2 class="rv">From a cold contact<br>to a booked call</h2>
       <p class="sub rv">I own the whole outreach funnel myself, so nothing gets lost between the list and the meeting.</p>
@@ -412,7 +437,7 @@ try {
   const halo = new THREE.Mesh(new THREE.RingGeometry(.04, .05, 40), new THREE.MeshBasicMaterial({color:0xFFB627, transparent:true, side:THREE.DoubleSide}));
   halo.position.copy(home.clone().multiplyScalar(1.004)); halo.lookAt(home.clone().multiplyScalar(3)); world.add(halo);
 
-  const targets = [[40.7,-74],[37.8,-122.4],[30.3,-97.7],[51.5,-.1],[43.7,-79.4],[-33.9,151.2],[25.2,55.3],[52.5,13.4]];
+  const targets = [[40.7,-74],[37.8,-122.4],[30.3,-97.7],[51.5,-.1],[43.7,-79.4],[-33.9,151.2],[25.2,55.3],[52.5,13.4],[41,29]];
   const SEG = 90;
   const arcs = targets.map(([la, lo], i) => {
     const end = at(la, lo), h = 1 + .55 * home.angleTo(end) / Math.PI + .12;
