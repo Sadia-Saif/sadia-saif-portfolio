@@ -6,14 +6,18 @@
 <title>Sadia Saif | B2B Business Development</title>
 <meta name="description" content="Sadia Saif is a Business Development Executive with a software engineering background. LinkedIn outbound, cold email and B2B prospecting for US and international markets.">
 <meta property="og:title" content="Sadia Saif | B2B Business Development">
-<meta property="og:description" content="I used to build the software. Now I start the conversations that sell it.">
+<meta property="og:description" content="I don't just book meetings. I close the clients. Full-cycle B2B sales for international clients.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#080A24">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A24'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23FFB627'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://sadia-saif-portfolio.vercel.app/">
+<meta property="og:url" content="https://sadia-saif-portfolio.vercel.app/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
 <style>
 :root{--bg:#080A24;--bg2:#0D1038;--text:#EEF0FF;--muted:#A3A8D6;--violet:#7B7FFF;--gold:#FFB627;--line:rgba(140,145,255,.2);--glass:rgba(255,255,255,.045);--display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;--body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}
@@ -39,6 +43,12 @@ section{position:relative}
 .nav a:hover{color:var(--text)}
 .nav a.cta{color:var(--bg);background:var(--gold);padding:8px 16px;border-radius:999px;font-weight:600}
 
+.menu{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--glass);cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.menu i{display:block;width:20px;height:2px;border-radius:2px;background:var(--text);transition:transform .25s,opacity .25s}
+.menu[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu[aria-expanded=true] i:nth-child(2){opacity:0}
+.menu[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:92px 0 64px;overflow:hidden}
 .hero::before{content:"";position:absolute;right:-12%;top:50%;width:min(920px,90vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(123,127,255,.34) 0%,rgba(123,127,255,.1) 38%,transparent 64%);pointer-events:none}
 #globe{position:absolute;right:-5%;top:50%;width:min(880px,66vw);aspect-ratio:1;transform:translateY(-50%);cursor:grab;touch-action:pan-y}
@@ -139,7 +149,7 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .study dt{font-weight:600;margin-top:16px;line-height:1.35}
 .study dd{margin:2px 0 0;color:var(--muted);font-size:.97rem}
 
-.contact{padding:130px 0 36px;text-align:center;overflow:hidden}
+.contact{position:relative;padding:130px 0 36px;text-align:center;overflow:hidden}
 .contact::before{content:"";position:absolute;left:50%;bottom:-55%;width:min(1100px,130vw);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,182,39,.3),rgba(123,127,255,.14) 40%,transparent 66%);pointer-events:none}
 .contact .wrap{position:relative}
 .contact h2{font-size:clamp(2.6rem,7.5vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:11em;margin:0 auto}
@@ -160,12 +170,25 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .reach .card{grid-template-columns:1fr;gap:28px;padding:30px 24px}
 .block{padding:84px 0}
 }
+@media (max-width:860px){
+.menu{display:flex}
+.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px;background:#080A24;border-bottom:1px solid var(--line)}
+.nav.open{display:flex}
+.nav a{padding:14px 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
+.nav a.cta{margin-top:16px;padding:14px;text-align:center;border-bottom:0}
+#globe{pointer-events:none}
+}
 @media (max-width:560px){
-.nav a:not(.cta){display:none}
 .steps,.steps.six{grid-template-columns:1fr}
 .roles{padding-left:36px}
 .role::before{left:-36px}
-.btn{padding:13px 20px}
+.btn{padding:13px 20px;flex:1 1 auto;text-align:center}
+.tags span{border-radius:18px}
+.wrap{padding:0 20px}
+.hero{padding:96px 0 72px}
+.reach .card{padding:26px 20px}
+.contact{padding-top:90px}
+.foot{justify-content:center;text-align:center;margin-top:64px}
 .pipe li{margin-right:18px;padding:8px 14px;font-size:.92rem}
 .pipe li:not(:last-child)::after{width:18px}
 }
@@ -182,7 +205,8 @@ h1 span em{animation:none;transform:none}
 <header class="top">
   <div class="wrap">
     <a class="name" href="#top">Sadia Saif<b>.</b></a>
-    <nav class="nav" aria-label="Sections">
+    <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+    <nav class="nav" id="nav" aria-label="Sections">
       <a href="#clients">Clients</a>
       <a href="#method">How I work</a>
       <a href="#experience">Experience</a>
@@ -220,10 +244,10 @@ h1 span em{animation:none;transform:none}
 
   <section class="facts" id="facts">
     <div class="wrap">
+      <div class="fact"><strong data-n="2" data-p="$" data-s="M+">$2M+</strong><span>in revenue I have helped businesses generate</span></div>
       <div class="fact"><strong data-n="7" data-s="+">7+</strong><span>years in the tech industry</span></div>
       <div class="fact"><strong data-n="5" data-s="+">5+</strong><span>years in B2B business development</span></div>
       <div class="fact"><strong data-n="3">3</strong><span>years as a software engineer</span></div>
-      <div class="fact"><strong data-n="2">2</strong><span>computer science degrees</span></div>
     </div>
   </section>
 
@@ -237,7 +261,7 @@ h1 span em{animation:none;transform:none}
       <div class="card tilt rv">
         <div>
           <h2>International clients, on their clock</h2>
-          <p class="sub">I have worked with international clients throughout my career, and I keep my day on EST, PST and other client time zones. I handle the whole pipeline myself: prospecting, outreach, the discovery call, the meetings that follow and closing the client.</p>
+          <p class="sub">I have worked with international clients throughout my career, helping businesses generate more than $2 million in revenue, and I keep my day on EST, PST and other client time zones. I handle the whole pipeline myself: prospecting, outreach, the discovery call, the meetings that follow and closing the client.</p>
         </div>
         <div>
           <h3>Clients in</h3>
@@ -409,9 +433,9 @@ document.documentElement.classList.add('js');
     es.forEach(function(e){
       if(!e.isIntersecting) return;
       cio.unobserve(e.target);
-      var el = e.target, n = +el.dataset.n, s = el.dataset.s || '', t0 = null;
+      var el = e.target, n = +el.dataset.n, s = el.dataset.s || '', pre = el.dataset.p || '', t0 = null;
       if(calm) return;
-      function tick(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1100, 1); el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if(p < 1) requestAnimationFrame(tick); }
+      function tick(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1100, 1); el.textContent = pre + Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if(p < 1) requestAnimationFrame(tick); }
       requestAnimationFrame(tick);
     });
   }, {threshold:.6});
@@ -429,6 +453,12 @@ document.documentElement.classList.add('js');
     });
   }
 
+  var menu = document.querySelector('.menu'), nav = document.getElementById('nav');
+  function setMenu(open){ nav.classList.toggle('open', open); menu.setAttribute('aria-expanded', open); menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  menu.addEventListener('click', function(){ setMenu(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') setMenu(false); });
+  addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
+
   var roles = document.querySelector('.roles'), fill = document.querySelector('.fill');
   function grow(){
     var r = roles.getBoundingClientRect();
@@ -443,8 +473,9 @@ import * as THREE from 'three';
 const box = document.getElementById('globe'), pin = box.querySelector('.pin');
 const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 try {
-  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const small = matchMedia('(max-width: 860px)').matches;
+  const renderer = new THREE.WebGLRenderer({antialias:!small, alpha:true, powerPreference:'low-power'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
   box.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, .1, 20);
@@ -456,7 +487,7 @@ try {
     return new THREE.Vector3(-r * Math.sin(p) * Math.cos(t), r * Math.cos(p), r * Math.sin(p) * Math.sin(t));
   };
 
-  const N = 3200, pos = new Float32Array(N * 3);
+  const N = small ? 1700 : 3200, pos = new Float32Array(N * 3);
   for (let i = 0; i < N; i++) {
     const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * 2.399963;
     pos.set([Math.cos(a) * r, y, Math.sin(a) * r], i * 3);
@@ -464,7 +495,7 @@ try {
   const dots = new THREE.BufferGeometry();
   dots.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   world.add(new THREE.Points(dots, new THREE.PointsMaterial({color:0x8E92FF, size:.017, transparent:true, opacity:.9})));
-  world.add(new THREE.Mesh(new THREE.SphereGeometry(.985, 48, 48), new THREE.MeshBasicMaterial({color:0x0A0C30})));
+  world.add(new THREE.Mesh(new THREE.SphereGeometry(.985, small ? 28 : 48, small ? 28 : 48), new THREE.MeshBasicMaterial({color:0x0A0C30})));
   const ring = new THREE.Mesh(new THREE.TorusGeometry(1.32, .003, 8, 160), new THREE.MeshBasicMaterial({color:0x7B7FFF, transparent:true, opacity:.5}));
   ring.rotation.x = 1.25; scene.add(ring);
   const ring2 = ring.clone(); ring2.rotation.set(1.9, .5, 0); ring2.scale.setScalar(1.12); scene.add(ring2);
@@ -509,7 +540,7 @@ try {
   const clock = new THREE.Clock();
   function frame() {
     requestAnimationFrame(frame);
-    if (!seen) return;
+    if (!seen || document.hidden) return;
     const t = clock.getElapsedTime();
     drag += vel; vel *= down ? .6 : .95;
     world.rotation.y = base + (calm ? 0 : t * .11) + drag;
