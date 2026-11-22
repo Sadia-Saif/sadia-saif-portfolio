@@ -39,7 +39,7 @@ section{position:relative}
 .nav a:hover{color:var(--text)}
 .nav a.cta{color:var(--bg);background:var(--gold);padding:8px 16px;border-radius:999px;font-weight:600}
 
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;overflow:hidden}
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:92px 0 64px;overflow:hidden}
 .hero::before{content:"";position:absolute;right:-12%;top:50%;width:min(920px,90vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(123,127,255,.34) 0%,rgba(123,127,255,.1) 38%,transparent 64%);pointer-events:none}
 #globe{position:absolute;right:-5%;top:50%;width:min(880px,66vw);aspect-ratio:1;transform:translateY(-50%);cursor:grab;touch-action:pan-y}
 #globe:active{cursor:grabbing}
@@ -47,10 +47,10 @@ section{position:relative}
 .pin{position:absolute;left:0;top:0;font-size:.82rem;font-weight:600;color:var(--bg);background:var(--gold);padding:2px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .3s;will-change:transform}
 .hero .wrap{position:relative;z-index:2;width:100%;pointer-events:none}
 .hero .wrap>*{pointer-events:auto}
-.status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;color:var(--muted);border:1px solid var(--line);background:var(--glass);padding:6px 14px;border-radius:999px;margin-bottom:26px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;color:var(--muted);border:1px solid var(--line);background:var(--glass);padding:6px 14px;border-radius:999px;margin-bottom:18px}
 .status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,182,39,.7);animation:pulse 2s infinite}
 @keyframes pulse{to{box-shadow:0 0 0 12px rgba(255,182,39,0)}}
-h1{font-size:clamp(2.7rem,7.2vw,6rem);line-height:.96;font-weight:800;letter-spacing:-.04em;max-width:11.5em}
+h1{font-size:clamp(2.5rem,6.2vw,5.2rem);line-height:.96;font-weight:800;letter-spacing:-.04em;max-width:11.5em}
 h1 span{display:block;overflow:hidden}
 h1 span em{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
 h1 span:nth-child(2) em{animation-delay:.12s}
@@ -59,7 +59,17 @@ h1 span:nth-child(4) em{animation-delay:.36s}
 h1 .dim em{color:var(--muted)}
 h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 @keyframes rise{to{transform:none}}
-.lede{margin-top:28px;max-width:31em;font-size:1.15rem;color:var(--muted)}
+.hook{margin-top:26px;font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.2;letter-spacing:-.02em}
+.hook b{font-weight:800;color:var(--gold);text-shadow:0 0 28px rgba(255,182,39,.55)}
+.pipe{list-style:none;display:flex;flex-wrap:wrap;gap:10px 0;margin:20px 0 0;padding:0}
+.pipe li{position:relative;font-weight:600;font-size:.98rem;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(8,10,36,.6);backdrop-filter:blur(6px);margin-right:34px;animation:lit 4.8s infinite}
+.pipe li:last-child{margin-right:0}
+.pipe li:not(:last-child)::after{content:"";position:absolute;left:100%;top:50%;width:34px;height:2px;margin-left:1px;background:linear-gradient(90deg,var(--violet),var(--gold));opacity:.7}
+.pipe li:nth-child(2){animation-delay:.9s}
+.pipe li:nth-child(3){animation-delay:1.8s}
+.pipe li:nth-child(4){animation-delay:2.7s}
+@keyframes lit{0%,26%,100%{border-color:var(--line);color:var(--text);box-shadow:none}8%,16%{border-color:var(--gold);color:var(--gold);box-shadow:0 0 22px -2px rgba(255,182,39,.75)}}
+.lede{margin-top:18px;max-width:31em;font-size:1.08rem;color:var(--muted)}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:999px;border:1px solid var(--line);background:var(--glass);transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-3px);border-color:var(--violet)}
@@ -155,12 +165,14 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .roles{padding-left:36px}
 .role::before{left:-36px}
 .btn{padding:13px 20px}
+.pipe li{margin-right:18px;padding:8px 14px;font-size:.92rem}
+.pipe li:not(:last-child)::after{width:18px}
 }
 @media (prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .js .rv{opacity:1;transform:none;transition:none}
 h1 span em{animation:none;transform:none}
-.belt div,.status i,.scroll::after{animation:none}
+.belt div,.status i,.scroll::after,.pipe li{animation:none}
 }
 </style>
 </head>
@@ -190,7 +202,11 @@ h1 span em{animation:none;transform:none}
         <span><em>Now I start the</em></span>
         <span class="glow"><em>conversations that sell it.</em></span>
       </h1>
-      <p class="lede">I find your next client, start the conversation and close the deal. One person, the whole B2B sales pipeline, on your time zone.</p>
+      <p class="hook">I don't just book meetings. <b>I close the clients.</b></p>
+      <ol class="pipe" aria-label="The stages I handle">
+        <li>Prospecting</li><li>Outreach</li><li>Discovery calls</li><li>Closing</li>
+      </ol>
+      <p class="lede">Every stage handled by me, for international clients, on their time zone.</p>
       <div class="actions">
         <a class="btn gold" href="mailto:sadiasaif.official@gmail.com?subject=Hello%20Sadia">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">Connect on LinkedIn</a>
