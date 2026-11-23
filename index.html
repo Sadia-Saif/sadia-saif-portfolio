@@ -12,12 +12,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A24'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23FFB627'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://sadia-saif-portfolio.vercel.app/">
 <meta property="og:url" content="https://sadia-saif-portfolio.vercel.app/">
+<meta property="og:image" content="https://sadia-saif-portfolio.vercel.app/sadia-saif.jpg">
 <meta name="twitter:card" content="summary">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="sadia-saif.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
 <style>
 :root{--bg:#080A24;--bg2:#0D1038;--text:#EEF0FF;--muted:#A3A8D6;--violet:#7B7FFF;--gold:#FFB627;--line:rgba(140,145,255,.2);--glass:rgba(255,255,255,.045);--display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;--body:"Instrument Sans","Segoe UI",Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}
@@ -50,17 +50,28 @@ section{position:relative}
 .menu[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .menu:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:92px 0 64px;overflow:hidden}
-.hero::before{content:"";position:absolute;right:-12%;top:50%;width:min(920px,90vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(123,127,255,.34) 0%,rgba(123,127,255,.1) 38%,transparent 64%);pointer-events:none}
-#globe{position:absolute;right:-5%;top:50%;width:min(880px,66vw);aspect-ratio:1;transform:translateY(-50%);cursor:grab;touch-action:pan-y}
-#globe:active{cursor:grabbing}
-#globe canvas{width:100%!important;height:100%!important;display:block}
-.pin{position:absolute;left:0;top:0;font-size:.82rem;font-weight:600;color:var(--bg);background:var(--gold);padding:2px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .3s;will-change:transform}
-.hero .wrap{position:relative;z-index:2;width:100%;pointer-events:none}
-.hero .wrap>*{pointer-events:auto}
+.hero::before{content:"";position:absolute;right:-14%;top:50%;width:min(900px,90vw);aspect-ratio:1;transform:translateY(-50%);background:radial-gradient(circle,rgba(123,127,255,.34) 0%,rgba(123,127,255,.1) 38%,transparent 64%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.portrait{position:relative;perspective:1100px}
+.portrait::before,.portrait::after{content:"";position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(123,127,255,.45);pointer-events:none}
+.portrait::before{width:128%;aspect-ratio:1;margin:-64% 0 0 -64%;animation:spin 40s linear infinite;border-style:dashed}
+.portrait::after{width:108%;aspect-ratio:1;margin:-54% 0 0 -54%;border-color:rgba(255,182,39,.35);animation:spin 28s linear infinite reverse;border-top-color:transparent;border-left-color:transparent}
+@keyframes spin{to{transform:rotate(360deg)}}
+.shot{position:relative;z-index:1;transform-style:preserve-3d;transition:transform .25s ease-out}
+.frame{position:relative;border-radius:28px;padding:3px;background:linear-gradient(150deg,var(--gold),var(--violet) 55%,rgba(123,127,255,.2));box-shadow:0 40px 90px -30px rgba(0,0,0,.85),0 0 70px -18px rgba(123,127,255,.75)}
+.frame img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:25px;background:var(--bg2)}
+.frame::after{content:"";position:absolute;inset:3px;border-radius:25px;background:linear-gradient(180deg,transparent 62%,rgba(8,10,36,.62));pointer-events:none}
+.chip{position:absolute;z-index:2;display:flex;flex-direction:column;line-height:1.25;padding:12px 16px;border-radius:16px;background:rgba(13,16,56,.86);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 18px 40px -14px rgba(0,0,0,.8);font-size:.86rem;color:var(--muted);transform:translateZ(60px);animation:bob 5s ease-in-out infinite}
+.chip b{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--gold)}
+.chip.a{left:-34px;top:11%}
+.chip.b{right:-26px;bottom:13%;animation-delay:-2.5s}
+@keyframes bob{50%{margin-top:-10px}}
+.tag{position:absolute;z-index:2;left:22px;bottom:20px;transform:translateZ(36px);font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+.tag small{display:block;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:0}
 .status{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;color:var(--muted);border:1px solid var(--line);background:var(--glass);padding:6px 14px;border-radius:999px;margin-bottom:18px}
 .status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,182,39,.7);animation:pulse 2s infinite}
 @keyframes pulse{to{box-shadow:0 0 0 12px rgba(255,182,39,0)}}
-h1{font-size:clamp(2.5rem,6.2vw,5.2rem);line-height:.96;font-weight:800;letter-spacing:-.04em;max-width:11.5em}
+h1{font-size:clamp(2.4rem,4.7vw,4rem);line-height:.96;font-weight:800;letter-spacing:-.04em;max-width:11.5em}
 h1 span{display:block;overflow:hidden}
 h1 span em{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
 h1 span:nth-child(2) em{animation-delay:.12s}
@@ -159,7 +170,8 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .foot{margin-top:100px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media (max-width:960px){
-#globe{right:-30%;width:120vw;opacity:.5}
+.hero .wrap{grid-template-columns:1fr;gap:56px}
+.portrait{width:min(380px,82%);margin:0 auto}
 .hero::before{right:-40%;width:130vw}
 .facts .wrap{grid-template-columns:1fr 1fr}
 .fact{padding:26px 16px}
@@ -176,16 +188,19 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 .nav.open{display:flex}
 .nav a{padding:14px 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
 .nav a.cta{margin-top:16px;padding:14px;text-align:center;border-bottom:0}
-#globe{pointer-events:none}
 }
 @media (max-width:560px){
 .steps,.steps.six{grid-template-columns:1fr}
 .roles{padding-left:36px}
 .role::before{left:-36px}
 .btn{padding:13px 20px;flex:1 1 auto;text-align:center}
+.chip{padding:9px 12px;font-size:.78rem}
+.chip b{font-size:1.15rem}
+.chip.a{left:-18px}
+.chip.b{right:-14px}
 .tags span{border-radius:18px}
 .wrap{padding:0 20px}
-.hero{padding:96px 0 72px}
+.hero{padding:96px 0 96px}
 .reach .card{padding:26px 20px}
 .contact{padding-top:90px}
 .foot{justify-content:center;text-align:center;margin-top:64px}
@@ -196,7 +211,7 @@ h1 .glow em{background:linear-gradient(100deg,#fff 10%,var(--gold) 60%,#FF8A3D);
 html{scroll-behavior:auto}
 .js .rv{opacity:1;transform:none;transition:none}
 h1 span em{animation:none;transform:none}
-.belt div,.status i,.scroll::after,.pipe li{animation:none}
+.belt div,.status i,.scroll::after,.pipe li,.chip,.portrait::before,.portrait::after{animation:none}
 }
 </style>
 </head>
@@ -219,8 +234,8 @@ h1 span em{animation:none;transform:none}
 
 <main id="top">
   <section class="hero">
-    <div id="globe" aria-hidden="true"><span class="pin">Lahore</span></div>
     <div class="wrap">
+      <div class="intro">
       <p class="status"><i></i>Business Development Executive at Xorora</p>
       <h1>
         <span class="dim"><em>I used to build</em></span>
@@ -237,6 +252,15 @@ h1 span em{animation:none;transform:none}
         <a class="btn gold" href="mailto:sadiasaif.official@gmail.com?subject=Hello%20Sadia">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/sadia-saif" target="_blank" rel="noopener">Connect on LinkedIn</a>
         <a class="btn" href="Sadia_Saif_Resume.pdf" download="Sadia_Saif_Resume.pdf">Download resume (PDF)</a>
+      </div>
+      </div>
+      <div class="portrait">
+        <div class="shot tilt">
+          <div class="frame"><img src="sadia-saif.jpg" width="640" height="640" alt="Portrait of Sadia Saif at her desk" fetchpriority="high" decoding="async"></div>
+          <p class="tag">Sadia Saif<small>Business Development Executive</small></p>
+          <p class="chip a"><b>$2M+</b>revenue generated</p>
+          <p class="chip b"><b>5+ years</b>in B2B sales</p>
+        </div>
       </div>
     </div>
     <a class="scroll" href="#facts" aria-label="Scroll to the next section"></a>
@@ -468,105 +492,5 @@ document.documentElement.classList.add('js');
 })();
 </script>
 
-<script type="module">
-import * as THREE from 'three';
-const box = document.getElementById('globe'), pin = box.querySelector('.pin');
-const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-try {
-  const small = matchMedia('(max-width: 860px)').matches;
-  const renderer = new THREE.WebGLRenderer({antialias:!small, alpha:true, powerPreference:'low-power'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
-  box.appendChild(renderer.domElement);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, 1, .1, 20);
-  camera.position.z = 4.6;
-  const world = new THREE.Group(); scene.add(world);
-
-  const at = (lat, lon, r = 1) => {
-    const p = (90 - lat) * Math.PI / 180, t = (lon + 180) * Math.PI / 180;
-    return new THREE.Vector3(-r * Math.sin(p) * Math.cos(t), r * Math.cos(p), r * Math.sin(p) * Math.sin(t));
-  };
-
-  const N = small ? 1700 : 3200, pos = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) {
-    const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * 2.399963;
-    pos.set([Math.cos(a) * r, y, Math.sin(a) * r], i * 3);
-  }
-  const dots = new THREE.BufferGeometry();
-  dots.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  world.add(new THREE.Points(dots, new THREE.PointsMaterial({color:0x8E92FF, size:.017, transparent:true, opacity:.9})));
-  world.add(new THREE.Mesh(new THREE.SphereGeometry(.985, small ? 28 : 48, small ? 28 : 48), new THREE.MeshBasicMaterial({color:0x0A0C30})));
-  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.32, .003, 8, 160), new THREE.MeshBasicMaterial({color:0x7B7FFF, transparent:true, opacity:.5}));
-  ring.rotation.x = 1.25; scene.add(ring);
-  const ring2 = ring.clone(); ring2.rotation.set(1.9, .5, 0); ring2.scale.setScalar(1.12); scene.add(ring2);
-
-  const home = at(31.5, 74.3);
-  const gold = new THREE.MeshBasicMaterial({color:0xFFB627});
-  const homeDot = new THREE.Mesh(new THREE.SphereGeometry(.028, 16, 16), gold);
-  homeDot.position.copy(home); world.add(homeDot);
-  const halo = new THREE.Mesh(new THREE.RingGeometry(.04, .05, 40), new THREE.MeshBasicMaterial({color:0xFFB627, transparent:true, side:THREE.DoubleSide}));
-  halo.position.copy(home.clone().multiplyScalar(1.004)); halo.lookAt(home.clone().multiplyScalar(3)); world.add(halo);
-
-  const targets = [[40.7,-74],[37.8,-122.4],[30.3,-97.7],[51.5,-.1],[43.7,-79.4],[-33.9,151.2],[25.2,55.3],[52.5,13.4],[41,29]];
-  const SEG = 90;
-  const arcs = targets.map(([la, lo], i) => {
-    const end = at(la, lo), h = 1 + .55 * home.angleTo(end) / Math.PI + .12;
-    const c1 = home.clone().lerp(end, .25).normalize().multiplyScalar(h);
-    const c2 = home.clone().lerp(end, .75).normalize().multiplyScalar(h);
-    const g = new THREE.BufferGeometry().setFromPoints(new THREE.CubicBezierCurve3(home, c1, c2, end).getPoints(SEG));
-    const line = new THREE.Line(g, new THREE.LineBasicMaterial({color:0xFFB627, transparent:true}));
-    world.add(line);
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(.012, 12, 12), new THREE.MeshBasicMaterial({color:0xFFFFFF, transparent:true}));
-    dot.position.copy(end); world.add(dot);
-    return {line, dot, off: i * .9};
-  });
-
-  world.rotation.x = .32;
-  const base = Math.atan2(-home.x, home.z) + .5;
-  let drag = 0, vel = 0, down = false, lastX = 0, tiltX = 0, tiltY = 0;
-  box.addEventListener('pointerdown', e => { down = true; lastX = e.clientX; });
-  addEventListener('pointerup', () => { down = false; });
-  addEventListener('pointermove', e => {
-    if (down) { vel = (e.clientX - lastX) * .006; lastX = e.clientX; }
-    tiltX = (e.clientY / innerHeight - .5) * .25; tiltY = (e.clientX / innerWidth - .5) * .3;
-  });
-
-  const size = () => { const s = box.clientWidth; renderer.setSize(s, s, false); };
-  addEventListener('resize', size); size();
-
-  const v = new THREE.Vector3();
-  let seen = true;
-  new IntersectionObserver(es => { seen = es[0].isIntersecting; }).observe(box);
-  const clock = new THREE.Clock();
-  function frame() {
-    requestAnimationFrame(frame);
-    if (!seen || document.hidden) return;
-    const t = clock.getElapsedTime();
-    drag += vel; vel *= down ? .6 : .95;
-    world.rotation.y = base + (calm ? 0 : t * .11) + drag;
-    world.rotation.x += (.32 + tiltX - world.rotation.x) * .05;
-    scene.rotation.y += (tiltY - scene.rotation.y) * .05;
-    ring.rotation.z = t * .12; ring2.rotation.z = -t * .09;
-    halo.scale.setScalar(1 + (t % 1.6) * 1.6); halo.material.opacity = 1 - (t % 1.6) / 1.6;
-    arcs.forEach(a => {
-      const p = calm ? .5 : ((t + a.off) % 7.2) / 3.2;
-      const head = Math.min(p, 1), tail = Math.max(0, Math.min(p - .55, 1));
-      const s = Math.floor(tail * SEG), e = Math.floor(head * SEG);
-      a.line.geometry.setDrawRange(s, Math.max(0, e - s + 1));
-      a.line.material.opacity = p > 1.55 ? 0 : 1;
-      const hit = p >= 1 && p < 1.8 ? 1 - (p - 1) / .8 : 0;
-      a.dot.material.opacity = .35 + hit * .65; a.dot.scale.setScalar(1 + hit * 1.6);
-    });
-    renderer.render(scene, camera);
-    homeDot.getWorldPosition(v);
-    const front = v.z > .15;
-    v.project(camera);
-    const s = box.clientWidth;
-    pin.style.opacity = front ? 1 : 0;
-    pin.style.transform = 'translate(' + ((v.x * .5 + .5) * s + 12) + 'px,' + ((-v.y * .5 + .5) * s - 30) + 'px)';
-  }
-  frame();
-} catch (err) { box.style.display = 'none'; }
-</script>
 </body>
 </html>
