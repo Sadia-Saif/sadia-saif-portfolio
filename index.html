@@ -260,7 +260,7 @@ h1 span em{animation:none;transform:none}
         <div class="shot tilt">
           <div class="frame"><img src="sadia-saif.jpg" width="1280" height="1280" alt="Portrait of Sadia Saif at her desk" fetchpriority="high" decoding="async"></div>
           <p class="tag">Sadia Saif<small>Business Development Executive</small></p>
-          <p class="chip a"><b>$2M+</b>Revenue generated</p>
+          <p class="chip a"><b>$1.6M+</b>Revenue generated</p>
           <p class="chip b"><b>5+ years</b>In B2B sales</p>
         </div>
       </div>
@@ -270,7 +270,7 @@ h1 span em{animation:none;transform:none}
 
   <section class="facts" id="facts">
     <div class="wrap">
-      <div class="fact"><strong data-n="2" data-p="$" data-s="M+">$2M+</strong><span>Revenue I have helped businesses generate</span></div>
+      <div class="fact"><strong data-n="1.6" data-p="$" data-s="M+">$1.6M+</strong><span>Revenue I have helped businesses generate</span></div>
       <div class="fact"><strong data-n="7" data-s="+">7+</strong><span>years in the tech industry</span></div>
       <div class="fact"><strong data-n="5" data-s="+">5+</strong><span>years in B2B business development</span></div>
       <div class="fact"><strong data-n="3">3</strong><span>years as a software engineer</span></div>
@@ -287,7 +287,7 @@ h1 span em{animation:none;transform:none}
       <div class="card tilt rv">
         <div>
           <h2>International clients, on their clock</h2>
-          <p class="sub">I have worked with international clients throughout my career, helping businesses generate more than $2 million in revenue, and I keep my day on EST, PST and other client time zones. I handle the whole pipeline myself: prospecting, outreach, the discovery call, the meetings that follow and closing the client.</p>
+          <p class="sub">I have worked with international clients throughout my career, helping businesses generate more than $1.6 million in revenue, and I keep my day on EST, PST and other client time zones. I handle the whole pipeline myself: prospecting, outreach, the discovery call, the meetings that follow and closing the client.</p>
         </div>
         <div>
           <h3>Clients in</h3>
@@ -463,7 +463,7 @@ document.documentElement.classList.add('js');
       cio.unobserve(e.target);
       var el = e.target, n = +el.dataset.n, s = el.dataset.s || '', pre = el.dataset.p || '', t0 = null;
       if(calm) return;
-      function tick(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1100, 1); el.textContent = pre + Math.round(n * (1 - Math.pow(1 - p, 3))) + s; if(p < 1) requestAnimationFrame(tick); }
+      function tick(t){ if(!t0) t0 = t; var p = Math.min((t - t0) / 1100, 1); var v = n * (1 - Math.pow(1 - p, 3)); el.textContent = pre + (n % 1 ? v.toFixed(1) : Math.round(v)) + s; if(p < 1) requestAnimationFrame(tick); }
       requestAnimationFrame(tick);
     });
   }, {threshold:.6});
